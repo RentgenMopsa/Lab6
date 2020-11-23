@@ -6,6 +6,8 @@
      char str[100];
      char str1[100];
      char str2[100];
+     char str3[100];
+
      int s=0, k=0, max=0, len;
 
 
@@ -21,5 +23,10 @@
           if (s>max) {max=s; strcpy(str2, str1); strcpy(str1, "\0"); }
           s=0; k=0;
       }
-     printf("%s\n", str2);
+
+     memcpy(str3, str, strstr(str, str2)-str);
+     str3[strstr(str, str2)-str]=0;
+     strcat(str3, strstr(str, str2)+strlen(str2));
+
+     printf("%s %s\n", str2, str3);
  }
